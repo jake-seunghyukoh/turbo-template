@@ -1,5 +1,8 @@
 import { Container } from '@mui/material';
+import Head from 'next/head';
 import { ReactNode } from 'react';
+
+const defaultTitle = 'Turbo Template Web';
 
 interface LayoutProps {
   children: ReactNode;
@@ -7,8 +10,13 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <Container maxWidth="lg" disableGutters>
-      {children}
-    </Container>
+    <div>
+      <Head>
+        <title>{defaultTitle}</title>
+      </Head>
+      <Container maxWidth="lg" disableGutters>
+        {children}
+      </Container>
+    </div>
   );
 }
