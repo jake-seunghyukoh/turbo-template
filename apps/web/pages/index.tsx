@@ -1,13 +1,9 @@
-import Button from '@mui/material/Button';
-import { Link } from '../src/components/atoms/link';
+import HomePage from '../src/components/pages/home';
 
 export default function Home() {
   return (
     <div>
-      <h1>Home</h1>
-      <Button href="/foo" component={Link}>
-        To foo
-      </Button>
+      <HomePage />
     </div>
   );
 }
