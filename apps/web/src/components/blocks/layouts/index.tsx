@@ -1,4 +1,5 @@
-import { Container } from '@mui/material';
+import AppBar, { AppBarHeight } from '@block-components/app-bar';
+import { Box, Container } from '@mui/material';
 import Head from 'next/head';
 import { ReactNode } from 'react';
 
@@ -10,13 +11,25 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div>
+    <Box
+      sx={{
+        backgroundColor: '#FBFBFB',
+      }}
+    >
       <Head>
         <title>{defaultTitle}</title>
       </Head>
-      <Container maxWidth="lg" disableGutters>
+      <AppBar />
+      <Container
+        component="main"
+        maxWidth="lg"
+        disableGutters
+        sx={{
+          mt: AppBarHeight / 8,
+        }}
+      >
         {children}
       </Container>
-    </div>
+    </Box>
   );
 }
