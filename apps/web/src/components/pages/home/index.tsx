@@ -1,5 +1,5 @@
+import Layout from '@block-components/layouts';
 import { Typography } from '@mui/material';
-import Layout from '../../blocks/layouts';
 
 export default function HomePage() {
   return (
