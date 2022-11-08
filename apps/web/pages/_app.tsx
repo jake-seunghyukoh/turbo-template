@@ -1,10 +1,10 @@
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
+import createEmotionCache from '@theme/create-emotion-cache';
+import theme from '@theme/index';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import theme from '../src/theme';
-import createEmotionCache from '../src/theme/createEmotionCache';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

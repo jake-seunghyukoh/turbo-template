@@ -5,6 +5,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@theme/*": ["src/lib/material-ui/*"],
       "@atom-components/*": ["src/components/atoms/*"],
       "@block-components/*": ["src/components/blocks/*"],
       "@page-components/*": ["src/components/pages/*"]
