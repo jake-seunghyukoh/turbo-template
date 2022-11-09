@@ -1,5 +1,5 @@
 {
-  "globalDependencies": ["$NEXT_PUBLIC_LINKEDIN_URL", "$NEXT_PUBLIC_GITHUB_URL", "$NEXT_PUBLIC_EMAIL_URL"],
+  "globalDependencies": ["$NEXT_PUBLIC_LINKEDIN_URL", "$NEXT_PUBLIC_GITHUB_URL", "$NEXT_PUBLIC_EMAIL_URL", "$NEXT_PUBLIC_CHANNELTALK_SCRIPT"],
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {

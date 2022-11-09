@@ -5,6 +5,7 @@ import createEmotionCache from '@theme/create-emotion-cache';
 import theme from '@theme/index';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { ChannelTalkProvider } from 'src/providers/channel-talk-provider';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -22,6 +23,7 @@ export default function MyApp(props: MyAppProps) {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <ChannelTalkProvider />
         <Component {...pageProps} />
       </ThemeProvider>
     </CacheProvider>
