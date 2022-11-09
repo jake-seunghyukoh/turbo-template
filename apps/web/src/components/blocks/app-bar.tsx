@@ -19,8 +19,8 @@ type Menu = {
 
 const menus: Menu[] = [
   {
-    label: '메뉴 1',
-    link: '/menu1',
+    label: '일정',
+    link: '/calendar',
   },
   {
     label: '메뉴 2',
