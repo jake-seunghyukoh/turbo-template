@@ -1,10 +1,9 @@
-import { Button } from "ui";
+import HomePage from '@page-components/home';
 
-export default function Web() {
+export default function Home() {
   return (
     <div>
-      <h1>Web</h1>
-      <Button />
+      <HomePage />
     </div>
   );
 }

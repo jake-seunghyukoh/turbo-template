@@ -1,4 +1,5 @@
 {
+  "globalDependencies": ["$NEXT_PUBLIC_LINKEDIN_URL", "$NEXT_PUBLIC_GITHUB_URL", "$NEXT_PUBLIC_EMAIL_URL"],
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
@@ -9,6 +10,12 @@
       "outputs": []
     },
     "dev": {
+      "cache": false
+    },
+    "start": {
+      "cache": false
+    },
+    "clean": {
       "cache": false
     }
   }
