@@ -13,7 +13,7 @@ export default function HomePage() {
 
   return (
     <Layout isLoading={isLoading}>
-      <Box height={3000}></Box>
+      <Box></Box>
     </Layout>
   );
 }
