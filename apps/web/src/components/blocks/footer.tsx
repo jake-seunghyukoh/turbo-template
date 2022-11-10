@@ -16,10 +16,11 @@ export default function Footer() {
         square
         sx={{
           backgroundColor: 'white',
-          height: FooterHeight,
           display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'center',
           justifyContent: 'space-between',
+          py: 1.5,
           px: 2,
         }}
       >
