@@ -10,6 +10,8 @@ import {
   MenuItem,
   Toolbar,
 } from '@mui/material';
+import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 import { useState } from 'react';
 
 type Menu = {
@@ -35,6 +37,8 @@ const menus: Menu[] = [
 export const AppBarHeight = 64;
 
 export default function AppBar() {
+  const { data: session } = useSession();
+
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -45,7 +49,8 @@ export default function AppBar() {
     setAnchorElNav(null);
   };
 
-  const isSignedIn = false;
+  const isSignedIn = !!session?.user;
+  const profileImage = session?.user?.image;
 
   return (
     <MaterialAppBar position="fixed" elevation={0}>
@@ -91,9 +96,20 @@ export default function AppBar() {
           <Box display="flex" alignItems="center">
             <Box display="flex" mr={5}>
               {isSignedIn ? (
-                <Avatar />
+                <Avatar>
+                  {profileImage && (
+                    <Image
+                      src={profileImage}
+                      alt="profile"
+                      height={40}
+                      width={40}
+                    />
+                  )}
+                </Avatar>
               ) : (
                 <Button
+                  href="/sign-in"
+                  component={Link}
                   variant="contained"
                   disableElevation
                   sx={{
