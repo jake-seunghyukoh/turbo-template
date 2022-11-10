@@ -9,8 +9,9 @@ import {
   Menu,
   MenuItem,
   Toolbar,
+  Typography,
 } from '@mui/material';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -40,20 +41,35 @@ export default function AppBar() {
   const { data: session } = useSession();
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElAvatar, setAnchorElAvatar] = useState<null | HTMLElement>(
+    null,
+  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
+  };
+
+  const handleOpenAvatarMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElAvatar(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
+  const handleCloseAvatarMenu = () => {
+    setAnchorElAvatar(null);
+  };
+
   const isSignedIn = !!session?.user;
   const profileImage = session?.user?.image;
 
   return (
-    <MaterialAppBar position="fixed" elevation={0}>
+    <MaterialAppBar
+      position="fixed"
+      elevation={0}
+      sx={{ backgroundColor: '#fff' }}
+    >
       <Toolbar
         disableGutters
         sx={{
@@ -96,16 +112,18 @@ export default function AppBar() {
           <Box display="flex" alignItems="center">
             <Box display="flex" mr={5}>
               {isSignedIn ? (
-                <Avatar>
-                  {profileImage && (
-                    <Image
-                      src={profileImage}
-                      alt="profile"
-                      height={40}
-                      width={40}
-                    />
-                  )}
-                </Avatar>
+                <IconButton onClick={handleOpenAvatarMenu}>
+                  <Avatar>
+                    {profileImage && (
+                      <Image
+                        src={profileImage}
+                        alt="profile"
+                        height={40}
+                        width={40}
+                      />
+                    )}
+                  </Avatar>
+                </IconButton>
               ) : (
                 <Button
                   href="/sign-in"
@@ -157,6 +175,29 @@ export default function AppBar() {
             </Link>
           </MenuItem>
         ))}
+      </Menu>
+
+      <Menu
+        anchorEl={anchorElAvatar}
+        transformOrigin={{ horizontal: 'center', vertical: 'top' }}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        keepMounted
+        open={!!anchorElAvatar}
+        onClose={handleCloseAvatarMenu}
+      >
+        <MenuItem onClick={() => alert('Not implemented')}>
+          <Typography variant="body2" color="text.secondary">
+            프로필 수정
+          </Typography>
+        </MenuItem>
+        <MenuItem onClick={() => signOut()}>
+          <Typography variant="body2" color="text.secondary">
+            로그아웃
+          </Typography>
+        </MenuItem>
       </Menu>
     </MaterialAppBar>
   );
