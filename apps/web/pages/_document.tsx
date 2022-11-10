@@ -14,7 +14,6 @@ export default class MyDocument extends Document {
           <link
             rel="stylesheet"
             as="style"
-            crossOrigin=""
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard-dynamic-subset.css"
           />
           <meta name="emotion-insertion-point" content="" />
