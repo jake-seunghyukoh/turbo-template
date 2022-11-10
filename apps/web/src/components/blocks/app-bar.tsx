@@ -110,7 +110,7 @@ export default function AppBar() {
           </Box>
 
           <Box display="flex" alignItems="center">
-            <Box display="flex" mr={5}>
+            <Box display="flex" mr={1}>
               {isSignedIn ? (
                 <IconButton onClick={handleOpenAvatarMenu}>
                   <Avatar>
